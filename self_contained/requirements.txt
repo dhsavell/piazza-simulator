@@ -1,0 +1,9 @@
+# This file is identical to the root requirements.txt, but lacks piazza-api
+# because it isn't needed to generate sentences.
+
+certifi==2018.8.24
+chardet==3.0.4
+idna==2.7
+markovify==0.7.1
+Unidecode==1.0.22
+urllib3==1.23

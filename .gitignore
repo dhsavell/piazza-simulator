@@ -113,6 +113,5 @@ dmypy.json
 # Generated models
 *.json
 
-# Please build files
-/plz-*
-/.plz-*
+# Bazel build files
+/bazel-*
