@@ -8,8 +8,18 @@ import re
 TAG_REGEX = re.compile(r'(<!--.*?-->|<[^>]*>)')
 
 
+def sanitize(text):
+    return html.unescape(TAG_REGEX.sub('', text)).replace('#pin', '').strip()
+
+
+def extract_all_text(post):
+    for post_state in post['history']:
+        yield sanitize(post_state['subject'])
+        yield sanitize(post_state['content'])
+
+
 def write_post_corpus(posts, output):
-    post_contents = '\n'.join([html.unescape(TAG_REGEX.sub('', p['history'][0]['content']).replace('#pin', '')) for p in posts])
+    post_contents = '\n'.join({text for post in posts for text in extract_all_text(post)})
     with open(output, 'w') as fp:
         for line in post_contents.split('\n'):
             line = line.strip()
