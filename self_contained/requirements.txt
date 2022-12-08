@@ -1,7 +1,7 @@
 # This file is identical to the root requirements.txt, but lacks piazza-api
 # because it isn't needed to generate sentences.
 
-certifi==2018.8.24
+certifi==2022.12.7
 chardet==3.0.4
 idna==2.7
 markovify==0.7.1
